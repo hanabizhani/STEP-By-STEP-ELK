@@ -1,3 +1,22 @@
+************************************
+Logstash plugins installation guideline
+Linux and Windows
+Hana Bizhani
+July 2021
+Main reference is Elastic.co and Logz.io
+************************************
+
+    __...--~~~~~-._   _.-~~~~~--...__
+    //               `V'               \\ 
+   //                 |                 \\ 
+  //__...--~~~~~~-._  |  _.-~~~~~~--...__\\ 
+ //__.....----~~~~._\ | /_.~~~~----.....__\\
+====================\\|//====================
+                dwb `---`
+
+******************************************
+
+
 List of plugins:
 https://www.elastic.co/guide/en/logstash/current/filter-plugins.html
 https://www.elastic.co/guide/en/logstash/current/input-plugins.html

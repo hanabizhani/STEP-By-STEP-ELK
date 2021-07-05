@@ -1,0 +1,83 @@
+************************************
+Logstash Configuration guideline
+Linux and Windows
+Hana Bizhani
+July 2021
+Main reference is Elastic.co and Logz.io
+************************************
+
+
+       _.---._    /\\
+    ./'       "--`\//
+  ./              o \          .-----.
+ /./\  )______   \__ \        ( help! )
+./  / /\ \   | \ \  \ \       /`-----'
+   / /  \ \  | |\ \  \7--- ooo ooo ooo ooo ooo ooo
+   
+***********************************************
+
+Lets first read something in order to know more about logstash configuration:
+
+There are three main configuration sections in a Logstash configuration file, each responsible for different functions and using different Logstash plugins:
+1- Logstash Inputs
+2- Logstash Filters
+3- Logstash Outputs
+
+  _____   
+  /  _  \  
+ /  /_\  \ 
+/    |    \
+\____|__  /
+        \/  Logstash Inputs
+
+Here logstash can aggregate logs and events from various sources using different input plugins.
+Inputs are the starting point of any configuration.
+If you do not define an input, Logstash will automatically create a stdin input.
+
+
+__________ 
+\______   \
+ |    |  _/
+ |    |   \
+ |______  /
+        \/  Logstash Filters
+
+Logstash supports a number of extremely powerful filter plugins that enable you to manipulate, measure, and create events.
+If Logstash were just a simple pipe between a number of inputs and outputs, you could easily replace it with a service like IFTTT or Zapier.
+		
+		
+_________  
+\_   ___ \ 
+/    \  \/ 
+\     \____
+ \______  /
+        \/  Logstash Outputs
+
+Logstash supports a number of output plugins that enable you to push your data to various locations, services, and technologies.
+
+Example of logstash configuration reading file as input and send it to ElasticSearch:
+
+input {
+  file {
+         path => "/var/log/apache2/access.log"
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+  }
+}
+filter {
+    grok {
+      match => { "message" => "%{COMBINEDAPACHELOG}" }
+    }
+    date {
+    match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
+  }
+  geoip {
+      source => "clientip"
+    }
+}
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+  }
+}
+

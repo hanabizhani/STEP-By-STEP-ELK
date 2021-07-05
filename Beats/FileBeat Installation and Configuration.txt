@@ -1,0 +1,58 @@
+************************************
+Logstash Configuration guideline
+Linux and Windows
+Hana Bizhani
+July 2021
+Main reference is Elastic.co and Logz.io
+************************************
+
+
+                              _     _
+                             ( \---/ )
+                              ) . . (
+________________________,--._(___Y___)_,--._______________________ hjw
+                        `--'           `--'
+**********************************************************************
+
+
+Beats are a collection of lightweight and open source log shippers that act as agents installed on the different servers in your infrastructure for collecting logs or metrics.
+These can be log files (Filebeat), network data (Packetbeat), server metrics (Metricbeat), or any other type of data.
+One of the facts that make Filebeat so efficient is the way it handles backpressure—so if Logstash is busy, Filebeat slows down it’s read rate and picks up the beat once the slowdown is over.
+
+
+**Installing Beats on Linux
+    Download and install the Elasticsearch signing key:
+    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+    Save the repository definition:
+    echo "deb https://artifacts.elastic.co/packages/6.x-prerelease/aptstable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+
+    Install Beat:
+    sudo apt-get updatesudo apt-get install <beatname>
+
+**Installing Beats on Windows
+    Try downloading windows version of logstash from download page of https://www.elastic.co/downloads/beats/filebeat
+
+
+
+**Configuring filebeat
+Filebeat Configuration file is filebeat.yml
+The configuration file will include two main sections: one defines what data to collect and how to handle it, the other where to send the data to.  
+
+**Example of a very basic Filebeat configuration:
+
+filebeat.prospectors:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/*.log
+  fields:
+    app_id: service-a
+    env: dev
+output.logstash:
+  hosts: ["localhost:5044"]
+
+  **ُStart FileBeat
+    Linux: sudo service filebeat start
+    Windows: filebeat.exe -e
+

@@ -1,0 +1,46 @@
+************************************
+Logstash installation guideline
+Linux and Windows
+Hana Bizhani
+July 2021
+Main reference is Elastic.co and Logz.io
+************************************
+
+   )  (
+     (   ) )
+      ) ( (
+ mrf_______)_
+ .-'---------|  
+( C|/\/\/\/\/|
+ '-./\/\/\/\/|
+   '_________'
+    '-------'
+	
+***********************************
+
+
+A. Install Java:
+
+linux:
+	sudo apt-get update
+	sudo apt-get install default-jre
+
+windows:
+	new versions of logstash are bundled with java
+	but if needed, try installing last version of java
+
+*If your operating system is windows ignore steps B through E and try downloading windows version of logstash from download page of https://www.elastic.co/downloads/logstash
+
+
+B. Add Elastic’s signing key:
+	wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-keyadd -
+
+C. Add the repository definition to your system
+	echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudotee -a /etc/apt/sources.list.d/elastic-7.x.list
+
+D. Install package containing only features available under the Apache 2.0 license
+	echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" |sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+
+E. Update your repositories and install Logstash
+	sudo apt-get update
+	sudo apt-get install logstash
