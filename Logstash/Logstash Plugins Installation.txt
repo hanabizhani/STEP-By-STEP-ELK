@@ -27,8 +27,13 @@ D:\Softwaredeveloping\Elastic\logstash-7.12.0\bin>logstash-plugin install logsta
 
 Offline plugin installation:
 https://www.elastic.co/guide/en/logstash/current/offline-plugins.html
-1. First install all plugin on system with internet
-2. logstash-plugin prepare-offline-pack logstash-filter-* logstash-input-* 
+1. First install all plugin on system with internet access
+2. Run this command to create offline package
+    logstash-plugin prepare-offline-pack logstash-filter-* logstash-input-* logstash-output-*
 3. There is zip file in /LOGSTASH_HOME/logstash-offline-plugins-7.13.2.zip
-4. Install plugin on offline machine;
+4. Copy zip file to the system with no internet access(i.e. d:\logstash_offline)
+5. Open Terminal/CMD in bin folder of logstash
+6. Install plugin on offline machine:
      logstash-plugin install file:///c:/path/to/logstash-offline-plugins-7.13.2.zip
+     in your example it would be:
+     logstash-plugin install file:///d:/logstash_offline/logstash-offline-plugins-7.13.2.zip
