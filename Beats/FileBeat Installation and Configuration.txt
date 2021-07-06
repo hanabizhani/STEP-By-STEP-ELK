@@ -1,5 +1,5 @@
 ************************************
-Logstash Configuration guideline
+Filebeat Installation and Configuration guideline
 Linux and Windows
 Hana Bizhani
 July 2021
