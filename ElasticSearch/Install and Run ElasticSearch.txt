@@ -1,0 +1,54 @@
+************************************
+ElasticSearch installation guideline
+Linux and Windows
+Hana Bizhani
+July 2021
+Main reference is Elastic.co and Logz.io
+************************************
+
+        \/       \\
+  ___  _@@       @@_  ___
+ (___)(_)         (_)(___)
+ //|| ||           || ||\\
+***************************************
+
+**Installing Beats on Linux
+    Download and install the Elasticsearch signing key:
+    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+    Save the repository definition:
+    echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+
+    Install elasticsearch:
+    sudo apt-get update
+    sudo apt-get install elasticsearch
+
+**Installing elasticsearch on Windows
+    Try downloading windows version of elasticsearch from download page of https://www.elastic.co/downloads/elasticsearch
+
+
+**Run ElasticSearch in Linux
+    sudo service elasticsearch start
+
+**Run ElasticSearch in windows
+    elasticsearch.bat
+
+    **Note that run commands should be executed in bin folder of elasticsearch**
+
+To confirm that everything is working fine, simply point curl or your browser to http://localhost:9200, and you should see something like the following output:
+
+{
+  "name" : "33QdmXw",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "mTkBe_AlSZGbX-vDIe_vZQ",
+  "version" : {
+    "number" : "6.1.2",
+    "build_hash" : "5b1fea5",
+    "build_date" : "2018-01-10T02:35:59.208Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.1.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}

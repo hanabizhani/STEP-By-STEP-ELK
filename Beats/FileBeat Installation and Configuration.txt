@@ -31,7 +31,7 @@ One of the facts that make Filebeat so efficient is the way it handles backpress
     sudo apt-get updatesudo apt-get install <beatname>
 
 **Installing Beats on Windows
-    Try downloading windows version of logstash from download page of https://www.elastic.co/downloads/beats/filebeat
+    Try downloading windows version of filebeat from download page of https://www.elastic.co/downloads/beats/filebeat
 
 
 

@@ -26,18 +26,22 @@ ____\___    ____|______   \______|_______
 ****************************************
 ▇ Install logstash and run connecting it to filebeat
 
-    1. Install Logstash using guidline Install Logstash.txt in logstash folder of this repository
-    2. Copy MyConfig.conf file from logstash folder of this repository to the extracted folder of logstash on your machine
-    You can read Logstash Configuration Tutorial.txt and Logstash Plugins Installation.txt in logstash folder of this repository in order to know more about logstash configuration and plugins.
+    1. Install Logstash using guidline 'Install Logstash.txt' in logstash folder of this repository
+    2. Copy 'MyConfig.conf' file from logstash folder of this repository to the extracted folder of logstash on your machine
+    You can read 'Logstash Configuration Tutorial.txt' and 'Logstash Plugins Installation.txt' in logstash folder of this repository in order to know more about logstash configuration and plugins.
     3. Run Logstash
             logstash.bat -f logstash.conf
     *If you copy configuration file in any other folder you should use relative path in the command
 
 ▇ Install filebeat and run
-    1. Install filebeat using FileBeat Installation and Configuration.txt in filebeat folder of this repository
+    1. Install filebeat using 'FileBeat Installation and Configuration.txt' in filebeat folder of this repository
     2. Create a log folder in you machine containing log files(*.log)
-    3. Copy the content of file named FilebeatConfig.txt in filebeat folder of this repository to the end of filebeat.yml file in extracted folder of filebeat in your machine
-    4. Alter path of log folder (because it is YAML file and sensitive do not use tabs or other tab)
+    3. Copy the content of file named 'FilebeatConfig.txt' in filebeat folder of this repository to the end of filebeat.yml file in extracted folder of filebeat in your machine
+    4. Alter path of input log folder (because it is YAML file and sensitive do not use tabs or other tab)
     5. Start filebeat with command
-        	filebeat.exe -c filebeat.yml
+        	filebeat.exe -e
+
+▇ Install ElasticSearch and run
+    1. Make sure your operating system is on the Elastic support matrix (https://www.elastic.co/support/matrix)     
+    2. Install and run elasticsearch using 'Install and Run ElasticSearch.txt' in elasticsearch folder of this repository
 
