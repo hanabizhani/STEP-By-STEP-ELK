@@ -52,3 +52,6 @@ To confirm that everything is working fine, simply point curl or your browser to
   },
   "tagline" : "You Know, for Search"
 }
+
+You can check the name of creted index with this command
+  http://localhost:9200/_cat/indices?v&pretty
