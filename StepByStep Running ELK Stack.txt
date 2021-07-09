@@ -39,7 +39,7 @@ ____\___    ____|______   \______|_______
     3. Copy the content of file named 'FilebeatConfig.txt' in filebeat folder of this repository to the end of filebeat.yml file in extracted folder of filebeat in your machine
     4. Alter path of input log folder (because it is YAML file and sensitive do not use tabs or other tab)
     5. Start filebeat with command
-        	filebeat.exe -e
+        	filebeat.exe -e 
 
 ▇ Install ElasticSearch and run
     1. Make sure your operating system is on the Elastic support matrix (https://www.elastic.co/support/matrix)     
