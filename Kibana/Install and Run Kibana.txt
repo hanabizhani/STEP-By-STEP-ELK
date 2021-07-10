@@ -24,8 +24,33 @@ Main reference is Elastic.co and Logz.io
  
 ****************************************************************
 
-install
+**Installing Beats on Linux
+    Download and install the Elastic signing key:
+    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-keyadd -
 
-modify configuration
+    Save the repository definition:
+    echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudotee -a /etc/apt/sources.list.d/elastic-7.x.list
+    
+    Install kibana:
+    sudo apt-get update
+    sudo apt-get install kibana
 
-run
+**Installing kibana on Windows
+    Try downloading windows version of kibana from download page of https://www.elastic.co/downloads/kibana
+
+
+**Modify configuration
+    Open up the Kibana configuration file at: /etc/kibana/kibana.yml, and make sure you have the following configurations defined:
+
+    server.port: 5601
+    elasticsearch.url: "http://localhost:9200"
+    
+    These specific configurations tell Kibana which Elasticsearch to connect to and which port to use.
+
+**Run Kibana in Linux
+    sudo service kibana start
+
+**Run Kibana in windows
+    kibana.bat
+
+**Open up Kibana in your browser with: http://<yourServerIP>:5601
