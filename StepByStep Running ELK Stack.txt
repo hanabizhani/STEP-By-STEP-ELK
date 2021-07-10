@@ -45,3 +45,7 @@ ____\___    ____|______   \______|_______
     1. Make sure your operating system is on the Elastic support matrix (https://www.elastic.co/support/matrix)     
     2. Install and run elasticsearch using 'Install and Run ElasticSearch.txt' in elasticsearch folder of this repository
 
+
+▇ Install Kibana an run
+    1. Install and run kibana using 'Install and Run Kibana.txt' in kibana folder of this repository
+
