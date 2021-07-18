@@ -30,7 +30,7 @@ ____\___    ____|______   \______|_______
     2. Copy 'MyConfig.conf' file from logstash folder of this repository to the extracted folder of logstash on your machine
     You can read 'Logstash Configuration Tutorial.txt' and 'Logstash Plugins Installation.txt' in logstash folder of this repository in order to know more about logstash configuration and plugins.
     3. Run Logstash
-            logstash.bat -f logstash.conf
+            logstash.bat -f MyConfig.conf
     *If you copy configuration file in any other folder you should use relative path in the command
 
 ▇ Install filebeat and run
